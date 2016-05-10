@@ -15,8 +15,8 @@ describe('App: FlSam', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'fl-sam works!\'',
-      inject([FlSamAppComponent], (app: FlSamAppComponent) => {
-    expect(app.title).toEqual('fl-sam works!');
-  }));
+  // it('should have as title \'fl-sam works!\'',
+  //     inject([FlSamAppComponent], (app: FlSamAppComponent) => {
+  //   expect(app.title).toEqual('fl-sam works!');
+  // }));
 });
