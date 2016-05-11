@@ -15,7 +15,7 @@ export class FlSamAppComponent {
   public fed_allow: number;
   constructor(){
     console.log("Uncle sam on the move");
-
+    fed_tax()
   }
 
   net_income(gross_pay, taxes){
@@ -27,12 +27,40 @@ export class FlSamAppComponent {
   }
 
   fed_tax(gross, status){
-    if(status == "single"){
-      if (gross == 1000){
-
-      }
+  var fed_w;
+  if(status =="single") {
+    if (gross >= 11525 && gross <= 39750){
+      fed_w = 922.5 + ((gross-11525)*(15/100));
+      console.log("if: fed_w = 922.5 + ((gross-11525)*(15/100))");
+      console.log(fed_w);
+      return fed_w;
+    }
+    else if (gross >= 39751 && gross <= 93050){
+      console.log("else if: gross >= 39751 && gross <= 93050");
+      fed_w =  5156 + ((gross-39750).to_f*(25/100));
+      console.log(fed_w);
+      return fed_w;
+    }
+    else{
+      fed_w = gross*(39/100);
+      console.log("else: fed_w = gross*(39/100)");
+      console.log(fed_w);
+      return fed_w;
     }
   }
+
+  if(status=="married_jointly"){
+
+  }
+
+  if(status=="married_separate"){
+
+  }
+
+  if(status=="head_household"){
+
+  }
+}
 
   tax_cheat(amount){
     // var payments = [];
