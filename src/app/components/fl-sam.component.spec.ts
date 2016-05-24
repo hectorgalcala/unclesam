@@ -1,11 +1,5 @@
-import {
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
-import { FlSamAppComponent } from '../app/fl-sam.component';
+import { beforeEachProviders, describe, expect, it, inject } from '@angular/core/testing';
+import { FlSamAppComponent } from './fl-sam.component';
 
 beforeEachProviders(() => [FlSamAppComponent]);
 
