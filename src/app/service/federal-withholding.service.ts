@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class FederalWithholdingService {
 
-public fed_with: any;
+public fed_with: number;
+public gross: any;
 
   constructor() {
     this.fed_with = null;
@@ -19,7 +20,8 @@ public fed_with: any;
     }
 
     single_rate(gross){
-      var gross = gross
+      this.gross = gross;
+      var gross = this.gross;
 
       if(gross < 2249) {
         this.fed_with = 0;
