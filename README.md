@@ -1,4 +1,4 @@
-# Uncle Sam Simple Tax Salary calcular for FL
+# Uncle Sam Simple Salary Federal Tax Calculator
 
 npm install -g angular-cli
 
