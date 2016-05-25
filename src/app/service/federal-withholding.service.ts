@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {RateService} from './rate.service';
 
 @Injectable()
 export class FederalWithholdingService {
@@ -6,8 +7,9 @@ export class FederalWithholdingService {
 public fed_with: number;
 public gross: any;
 
-  constructor() {
+  constructor(private rate_service: RateService) {
     this.fed_with = null;
+    this.rate_service.test();
   }
 
   fed_tax(gross, status){
@@ -91,7 +93,7 @@ public gross: any;
         this.fed_with = 119934.75 + ((gross-415600)*(35/100));
         return this.fed_with;
       }
-      else{
+      else {
         this.fed_with = gross*(39.6/100);
         return this.fed_with;
         }

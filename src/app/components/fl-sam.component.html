@@ -1,12 +1,12 @@
 <h1>
-  FL Annual W2
+Annual Salary Federal Tax Calculator
 </h1>
 
 <!-- Tax data form  -->
 <div class="container">
   <form>
     <p>Gross Pay</p>
-    <input type="text" placeholder="" value="5000" #gross_amount>
+    <input type="number" placeholder="" value="5000" #gross_amount>
 
     <!-- <p>Gross Pay Method</p> -->
       <!-- <p>Annually, Pay Per Period -->
@@ -44,14 +44,14 @@
 
   <div class="results">
     <p>Gross Pay: {{ gross_pay }}</p>
-    <p>Federal: {{fed_w }}</p>
+    <p>Federal: {{ fed_w }}</p>
     <p>Social Security: {{ social_security }}</p>
     <p>Medicare: {{ medicare }}</p>
     <p>Net Pay Annually: {{ net_pay }} </p>
-    <p>Monthly net: {{ monthly_pay }}</p>
-    <p>Semi-monthly net: {{ semi_monthly_pay }}</p>
-    <p>Biweekly net: {{ biweekly_pay }}</p>
-    <p>Weekly net: {{ weekly_pay }}</p>
+    <p>Monthly net: {{ monthly_pay | number:'2.1-2' }}</p>
+    <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.1-2' }}</p>
+    <p>Biweekly net: {{ biweekly_pay | number:'2.1-2'  }}</p>
+    <p>Weekly net: {{ weekly_pay | number:'2.1-2' }}</p>
   </div>
 
 </div>

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import {FederalWithholdingService} from '../service/federal-withholding.service';
-
+import {RateService} from '../service/rate.service';
 
 @Component({
   moduleId: module.id,
   selector: 'fl-sam-app',
   templateUrl: 'fl-sam.component.html',
   styleUrls: ['fl-sam.component.css'],
-  providers:[FederalWithholdingService]
+  providers:[FederalWithholdingService, RateService]
 })
 export class FlSamAppComponent {
 
@@ -28,14 +28,14 @@ export class FlSamAppComponent {
   public weekly_pay: number;
 
   constructor(private fed_service: FederalWithholdingService){
-    // this.fed_tax(100000, "single");
-    this.gross_pay = null;
+    this.setAllnull();
+  }
+
+  setAllnull(){
     this.fed_w = null;
     this.social_security = null;
     this.medicare = null;
     this.net_pay = null;
-    // console.log(this.fed_service);
-
   }
 
   net_income(gross_pay, taxes){
@@ -46,26 +46,27 @@ export class FlSamAppComponent {
     this.weekly_pay = this.net_pay/52;
   }
 
-  fed_compute(gross, status){
-
-  }
-
   fed_tax(gross, status){
     this.gross_pay = parseInt(gross)
-    // console.log("fedtax gross: typeof", typeof gross);
-    // var that = this;
-  if(status === "single") {
-    this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
-    this.social_security = this.gross_pay*0.062
-    this.medicare = this.gross_pay*0.0145
-    this.taxes  = this.fed_w+this.social_security + this.medicare
-    this.net_income(this.gross_pay, this.taxes);
-  }
 
-  if(status=="married"){
-    this.fed_w = this.fed_service.fed_tax(gross, status);
-    console.log(this.fed_w);
+    if(status === "single") {
+      this.setAllnull();
+      this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
+      this.social_security = this.gross_pay*0.062
+      this.medicare = this.gross_pay*0.0145
+      this.taxes  = this.fed_w+this.social_security + this.medicare
+      this.net_income(this.gross_pay, this.taxes);
     }
+
+    if(status=="married"){
+      this.setAllnull();
+      this.fed_w = this.fed_service.fed_tax(gross, status);
+      this.social_security = this.gross_pay*0.062
+      this.medicare = this.gross_pay*0.0145
+      this.taxes  = this.fed_w+this.social_security + this.medicare
+      this.net_income(this.gross_pay, this.taxes);
+    }
+
   }
 
 }
