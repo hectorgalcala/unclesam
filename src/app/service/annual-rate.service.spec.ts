@@ -5,7 +5,7 @@ import {
   expect,
   inject
 } from '@angular/core/testing';
-import { RateService } from './rate.service';
+import { RateService } from './annual-rate.service';
 
 describe('Rate Service', () => {
   beforeEachProviders(() => [RateService]);

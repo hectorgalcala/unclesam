@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import {FederalWithholdingService} from '../service/federal-withholding.service';
-import {RateService} from '../service/rate.service';
+import {AnnualFWHRateService} from '../service/annual-rate.service';
 
 @Component({
   moduleId: module.id,
   selector: 'fl-sam-app',
   templateUrl: 'fl-sam.component.html',
   styleUrls: ['fl-sam.component.css'],
-  providers:[FederalWithholdingService, RateService]
+  providers:[FederalWithholdingService, AnnualFWHRateService]
 })
 export class FlSamAppComponent {
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {RateService} from './rate.service';
+import {AnnualFWHRateService} from './annual-rate.service';
 
 @Injectable()
 export class FederalWithholdingService {
@@ -7,9 +7,9 @@ export class FederalWithholdingService {
 public fed_with: number;
 public gross: any;
 
-  constructor(private rate_service: RateService) {
+  constructor(private annual_rate_service: AnnualFWHRateService) {
     this.fed_with = null;
-    this.rate_service.test();
+    console.log("this.annual_rate_service");
   }
 
   fed_tax(gross, status){
@@ -17,7 +17,7 @@ public gross: any;
       return this.single_rate(gross);
     }
     if(status === "married"){
-    return this.married_rate(gross);
+      return this.married_rate(gross);
       }
     }
 
