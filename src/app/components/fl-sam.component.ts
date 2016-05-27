@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {FederalWithholdingService} from '../service/federal-withholding.service';
-import {AnnualFWHRateService} from '../service/annual-rate.service';
+import {SingleAnnualRateService} from '../service/single-annual-rate.service';
+import {MarriedAnnualRateService} from '../service/married-annual-rate.service';
 
 @Component({
   moduleId: module.id,
   selector: 'fl-sam-app',
   templateUrl: 'fl-sam.component.html',
   styleUrls: ['fl-sam.component.css'],
-  providers:[FederalWithholdingService, AnnualFWHRateService]
+  providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService]
 })
 export class FlSamAppComponent {
 
@@ -44,13 +45,13 @@ export class FlSamAppComponent {
     this.semi_monthly_pay = this.net_pay/24;
     this.biweekly_pay = this.net_pay/26;
     this.weekly_pay = this.net_pay/52;
+
   }
 
   fed_tax(gross, status){
     this.gross_pay = parseInt(gross)
-
+    this.setAllnull();
     if(status === "single") {
-      this.setAllnull();
       this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
       this.social_security = this.gross_pay*0.062
       this.medicare = this.gross_pay*0.0145
@@ -59,7 +60,6 @@ export class FlSamAppComponent {
     }
 
     if(status=="married"){
-      this.setAllnull();
       this.fed_w = this.fed_service.fed_tax(gross, status);
       this.social_security = this.gross_pay*0.062
       this.medicare = this.gross_pay*0.0145
