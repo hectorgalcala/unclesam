@@ -1,12 +1,9 @@
-# Uncle Sam Simple Salary Federal Tax Calculator
+## Uncle Sam Simple Salary Federal Tax Calculator
 
+```bash
 npm install -g angular-cli
+```
 
-
-<*****************>
-
+```bash
 ng serve
-
-<*****************>
-
-localhost:4200
+```

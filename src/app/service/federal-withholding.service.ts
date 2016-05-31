@@ -10,7 +10,6 @@ public gross: any;
 
   constructor(private single_annual_rate_service: SingleAnnualRateService, private married_annual_rate_service: MarriedAnnualRateService) {
     this.fed_with = null;
-    console.log("this.annual_rate_service");
   }
 
   fed_tax(gross, status){

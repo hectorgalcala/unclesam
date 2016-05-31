@@ -30,6 +30,7 @@ export class FlSamAppComponent {
 
   constructor(private fed_service: FederalWithholdingService){
     this.setAllnull();
+    this.gross_pay = 5000;
   }
 
   setAllnull(){
@@ -49,21 +50,24 @@ export class FlSamAppComponent {
   }
 
   fed_tax(gross, status){
-    this.gross_pay = parseInt(gross)
+    if (gross == ""){
+      gross = 0;
+    }
+    this.gross_pay = parseInt(gross);
     this.setAllnull();
     if(status === "single") {
       this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
-      this.social_security = this.gross_pay*0.062
-      this.medicare = this.gross_pay*0.0145
-      this.taxes  = this.fed_w+this.social_security + this.medicare
+      this.social_security = this.gross_pay*0.062;
+      this.medicare = this.gross_pay*0.0145;
+      this.taxes  = this.fed_w+this.social_security + this.medicare;
       this.net_income(this.gross_pay, this.taxes);
     }
 
     if(status=="married"){
       this.fed_w = this.fed_service.fed_tax(gross, status);
-      this.social_security = this.gross_pay*0.062
-      this.medicare = this.gross_pay*0.0145
-      this.taxes  = this.fed_w+this.social_security + this.medicare
+      this.social_security = this.gross_pay*0.062;
+      this.medicare = this.gross_pay*0.0145;
+      this.taxes  = this.fed_w+this.social_security + this.medicare;
       this.net_income(this.gross_pay, this.taxes);
     }
 
