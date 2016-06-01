@@ -1,4 +1,4 @@
-export class FlSamPage {
+export class HomeScreenPage {
   navigateTo() {
     return browser.get('/');
   }
