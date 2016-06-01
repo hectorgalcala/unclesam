@@ -5,12 +5,12 @@ import {MarriedAnnualRateService} from '../service/married-annual-rate.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'fl-sam-app',
-  templateUrl: 'fl-sam.component.html',
-  styleUrls: ['fl-sam.component.css'],
+  selector: 'home-screen',
+  templateUrl: 'home-screen.component.html',
+  styleUrls: ['home-screen.component.css'],
   providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService]
 })
-export class FlSamAppComponent {
+export class HomeScreenComponent {
 
   public social_security: number;
   public medicare: number;

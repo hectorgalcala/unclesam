@@ -87,6 +87,9 @@ public gross: any;
       else if(this.married_annual_rate_service.new_money(gross)) {
         this.fed_with = gross*(39.6/100);
         }
+      else {
+        console.log("Else happen in single rate()");
+      }
       return this.fed_with;
     }
 

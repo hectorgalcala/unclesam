@@ -1,10 +1,10 @@
-import { FlSamPage } from './app.po';
+import { HomeScreenPage } from './app.po';
 
 describe('fl-sam App', function() {
-  let page: FlSamPage;
+  let page: HomeScreenPage;
 
   beforeEach(() => {
-    page = new FlSamPage();
+    page = new HomeScreenPage();
   })
 
   it('should display message saying app works', () => {

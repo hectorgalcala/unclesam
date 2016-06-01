@@ -1,2 +1,2 @@
 export {environment} from './environment';
-export {FlSamAppComponent} from './components/fl-sam.component';
+export {HomeScreenComponent} from './components/home-screen.component';
