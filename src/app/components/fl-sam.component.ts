@@ -50,6 +50,7 @@ export class FlSamAppComponent {
   }
 
   fed_tax(gross, status){
+    // NOTE Blank HTML input elements === "" so when input is blank,  gross will be equal to zero. This way we wont a get a NaN issue.
     if (gross == ""){
       gross = 0;
     }
