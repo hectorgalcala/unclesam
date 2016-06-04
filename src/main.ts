@@ -1,9 +1,9 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { HomeScreenComponent, environment } from './app/';
+import { FederalScreenComponent, environment } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(HomeScreenComponent);
+bootstrap(FederalScreenComponent);

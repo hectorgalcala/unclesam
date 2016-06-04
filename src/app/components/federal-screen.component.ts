@@ -6,13 +6,12 @@ import {MarriedAnnualRateService} from '../service/married-status/married-annual
 
 @Component({
   moduleId: module.id,
-  selector: 'home-screen',
-  templateUrl: 'home-screen.component.html',
-  styleUrls: ['home-screen.component.css'],
+  selector: 'federal-screen',
+  templateUrl: 'federal-screen.component.html',
+  styleUrls: ['federal-screen.component.css'],
   providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService]
 })
-export class HomeScreenComponent {
-
+export class FederalScreenComponent implements FederalTax {
   public social_security: number;
   public medicare: number;
   public gross_pay: number;
