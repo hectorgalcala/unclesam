@@ -11,16 +11,18 @@ import {MarriedAnnualRateService} from '../service/married-status/married-annual
   styleUrls: ['federal-screen.component.css'],
   providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService]
 })
-export class FederalScreenComponent implements FederalTax {
+export class FederalScreenComponent {
   public social_security: number;
   public medicare: number;
+
+  // This fields are inside FederalTax interface
   public gross_pay: number;
-  public gross_pay_method: number;
   public gross_ytd: number;
   public pay_freq: string;
   public fed_status: string;
   public fed_allow: number;
-  public fed_w: any;
+  public fed_with: number;
+
   public taxes: number;
   public net_pay: number;
   public monthly_pay: number;
@@ -34,7 +36,7 @@ export class FederalScreenComponent implements FederalTax {
   }
 
   setAllnull(){
-    this.fed_w = null;
+    this.fed_with = null;
     this.social_security = null;
     this.medicare = null;
     this.net_pay = null;
@@ -51,7 +53,7 @@ export class FederalScreenComponent implements FederalTax {
   compute_taxes(){
     this.social_security = this.gross_pay*0.062;
     this.medicare = this.gross_pay*0.0145;
-    this.taxes = this.fed_w + this.social_security + this.medicare;
+    this.taxes = this.fed_with + this.social_security + this.medicare;
     this.net_income(this.gross_pay, this.taxes);
   }
 
@@ -65,12 +67,12 @@ export class FederalScreenComponent implements FederalTax {
     this.gross_pay = parseInt(gross);
 
     if(status == "single") {
-      this.fed_w = this.fed_service.fed_tax(this.gross_pay, status, pay_freq);
+      this.fed_with = this.fed_service.fed_tax(this.gross_pay, status, pay_freq);
       this.compute_taxes();
     }
 
     if (status == "married"){
-      this.fed_w = this.fed_service.fed_tax(gross, status, pay_freq);
+      this.fed_with = this.fed_service.fed_tax(gross, status, pay_freq);
       this.compute_taxes();
     }
 
