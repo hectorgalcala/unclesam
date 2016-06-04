@@ -46,7 +46,13 @@ export class HomeScreenComponent {
     this.semi_monthly_pay = this.net_pay/24;
     this.biweekly_pay = this.net_pay/26;
     this.weekly_pay = this.net_pay/52;
+  }
 
+  compute_taxes(){
+    this.social_security = this.gross_pay*0.062;
+    this.medicare = this.gross_pay*0.0145;
+    this.taxes = this.fed_w + this.social_security + this.medicare;
+    this.net_income(this.gross_pay, this.taxes);
   }
 
   fed_tax(gross, status){
@@ -58,18 +64,12 @@ export class HomeScreenComponent {
     this.setAllnull();
     if(status === "single") {
       this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
-      this.social_security = this.gross_pay*0.062;
-      this.medicare = this.gross_pay*0.0145;
-      this.taxes  = this.fed_w+this.social_security + this.medicare;
-      this.net_income(this.gross_pay, this.taxes);
+      this.compute_taxes();
     }
 
     if(status=="married"){
       this.fed_w = this.fed_service.fed_tax(gross, status);
-      this.social_security = this.gross_pay*0.062;
-      this.medicare = this.gross_pay*0.0145;
-      this.taxes  = this.fed_w+this.social_security + this.medicare;
-      this.net_income(this.gross_pay, this.taxes);
+      this.compute_taxes();
     }
 
   }
