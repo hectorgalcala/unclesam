@@ -32,28 +32,23 @@
       <!-- <p>Gross Pay YTD</p>
       <input type="text" placeholder="" [value]="gross_pay"> -->
 
-      <!-- <p>Pay Frequency </p> -->
-        <!-- <p>Daily, Weekly, Biweekly, bimonthly, monthly, quarter, semi-annual, annual</p> -->
-      <!-- <select name="Gross Pay Method" id="pay_frequency">
-        <option value="daily">Daily</option>
-        <option [value]="weekly">Weekly</option>
-        <option [value]="biweekly">Biweekly</option>
-        <option [value]="semi-monthly">Semi Monthly</option>
-        <option [value]="monthly">Monthly</option>
-        <option [value]="annually">Annually</option>
-      </select> -->
+      <p>Pay Frequency </p>
+      <select name="Gross Pay Method" #pay_freq>
+        <option value="monthly">Monthly</option>
+        <option value="annually">Annually</option>
+      </select>
 
       <p>Federal Filing Status</p>
       <select name="Gross Pay Method"  #file_status>
-          <option value="married">Married</option>
           <option value="single">Single</option>
+          <option value="married">Married</option>
           <option value="single">Married Single Rate</option>
       </select>
 
       <!-- <p># of Federal Allowances</p>
       <input type="text" placeholder=""> -->
 
-    <input type="submit" (click)="fed_tax(gross_amount.value, file_status.value)">
+    <input type="submit" (click)="fed_tax(gross_amount.value, file_status.value, pay_freq.value)">
     </form>
   </div>
 

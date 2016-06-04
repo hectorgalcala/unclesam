@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FederalTax} from '../models/federal-tax.interface';
 import {FederalWithholdingService} from '../service/federal-withholding.service';
-import {SingleAnnualRateService} from '../service/single-annual-rate.service';
-import {MarriedAnnualRateService} from '../service/married-annual-rate.service';
+import {SingleAnnualRateService} from '../service/single-status/single-annual-rate.service';
+import {MarriedAnnualRateService} from '../service/married-status/married-annual-rate.service';
 
 @Component({
   moduleId: module.id,
@@ -55,20 +56,22 @@ export class HomeScreenComponent {
     this.net_income(this.gross_pay, this.taxes);
   }
 
-  fed_tax(gross, status){
+  fed_tax(gross, status, pay_freq){
     // NOTE Blank HTML input elements === "" so when input is blank,  gross will be equal to zero. This way we wont a get a NaN issue.
+    this.setAllnull();
+    console.log(pay_freq);
     if (gross == ""){
       gross = 0;
     }
     this.gross_pay = parseInt(gross);
-    this.setAllnull();
-    if(status === "single") {
-      this.fed_w = this.fed_service.fed_tax(this.gross_pay, status);
+
+    if(status == "single") {
+      this.fed_w = this.fed_service.fed_tax(this.gross_pay, status, pay_freq);
       this.compute_taxes();
     }
 
-    if(status=="married"){
-      this.fed_w = this.fed_service.fed_tax(gross, status);
+    if (status == "married"){
+      this.fed_w = this.fed_service.fed_tax(gross, status, pay_freq);
       this.compute_taxes();
     }
 
