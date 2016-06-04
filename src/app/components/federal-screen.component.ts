@@ -1,15 +1,18 @@
 import {Component} from '@angular/core';
 import {FederalTax} from '../models/federal-tax.interface';
 import {FederalWithholdingService} from '../service/federal-withholding.service';
+
 import {SingleAnnualRateService} from '../service/single-status/single-annual-rate.service';
 import {MarriedAnnualRateService} from '../service/married-status/married-annual-rate.service';
+
+import {SingleMonthlyRateService} from '../service/single-status/single-monthly-rate.service';
 
 @Component({
   moduleId: module.id,
   selector: 'federal-screen',
   templateUrl: 'federal-screen.component.html',
   styleUrls: ['federal-screen.component.css'],
-  providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService]
+  providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService]
 })
 export class FederalScreenComponent {
   public social_security: number;
@@ -54,7 +57,7 @@ export class FederalScreenComponent {
     this.social_security = this.gross_pay*0.062;
     this.medicare = this.gross_pay*0.0145;
     this.taxes = this.fed_with + this.social_security + this.medicare;
-    this.net_income(this.gross_pay, this.taxes);
+    // this.net_income(this.gross_pay, this.taxes);
   }
 
   fed_tax(gross, status, pay_freq) {

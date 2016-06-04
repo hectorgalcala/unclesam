@@ -7,6 +7,10 @@ export class SingleMonthlyRateService {
   constructor() {
   }
 
+  test(){
+    console.log("Hello single monthly");
+  }
+
   poverty(gross){
     return gross < 2249;
   }
