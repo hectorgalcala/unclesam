@@ -6,13 +6,14 @@ import {SingleAnnualRateService} from '../service/single-status/single-annual-ra
 import {MarriedAnnualRateService} from '../service/married-status/married-annual-rate.service';
 
 import {SingleMonthlyRateService} from '../service/single-status/single-monthly-rate.service';
+import {MarriedMonthlyRateService} from '../service/married-status/married-monthly-rate.service';
 
 @Component({
   moduleId: module.id,
   selector: 'federal-screen',
   templateUrl: 'federal-screen.component.html',
   styleUrls: ['federal-screen.component.css'],
-  providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService]
+  providers:[FederalWithholdingService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService, MarriedMonthlyRateService]
 })
 export class FederalScreenComponent {
   public social_security: number;
@@ -35,7 +36,7 @@ export class FederalScreenComponent {
 
   constructor(private fed_service: FederalWithholdingService) {
     this.setAllnull();
-    this.gross_pay = 5000;
+    this.gross_pay = 8332;
   }
 
   setAllnull() {

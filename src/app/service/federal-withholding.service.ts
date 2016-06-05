@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {SingleAnnualRateService} from './single-status/single-annual-rate.service';
 import {MarriedAnnualRateService} from './married-status/married-annual-rate.service'
 import {SingleMonthlyRateService} from './single-status/single-monthly-rate.service';
+import {MarriedMonthlyRateService} from './married-status/married-monthly-rate.service';
 @Injectable()
 export class FederalWithholdingService {
 
 public fed_with: number;
 public gross: any;
 
-  constructor(private single_annual_rate_service: SingleAnnualRateService,private married_annual_rate_service: MarriedAnnualRateService, private single_monthly_rate_service: SingleMonthlyRateService) {
+  constructor(private single_annual_rate_service: SingleAnnualRateService,private married_annual_rate_service: MarriedAnnualRateService, private single_monthly_rate_service: SingleMonthlyRateService, private married_monthly_rate_service: MarriedMonthlyRateService) {
     this.fed_with = null;
   }
 
@@ -31,6 +32,7 @@ public gross: any;
 
       if(pay_freq == "monthly"){
         // return this.married_monthly_rate_service.computeFed(gross);
+      return this.married_monthly_rate_service.computeFed(gross);
       }
     }
    }
