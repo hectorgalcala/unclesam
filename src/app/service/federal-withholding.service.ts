@@ -16,21 +16,21 @@ public gross: any;
 
     if(status === "single") {
       if (pay_freq == "annually") {
-        return this.single_annual_rate(gross);
+        return this.single_annual_rate_service.computeFed(gross);
       }
 
       if (pay_freq == "monthly") {
-
+        return this.single_monthly_rate_service.computeFed(gross)
       }
     }
 
     if(status === "married") {
       if(pay_freq == "annually")  {
-          return this.married_annual_rate(gross);
+          return this.married_annual_rate_service.computeFed(gross);
       }
 
       if(pay_freq == "monthly"){
-        return;
+        // return this.married_monthly_rate_service.computeFed(gross);
       }
     }
    }

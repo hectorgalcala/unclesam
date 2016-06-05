@@ -20,23 +20,23 @@ export class SingleMonthlyRateService {
   }
 
   middle_class(gross){
-    return gross >= 39991 && gross <= 93400;
+    return gross >= 3326 && gross <= 7783;
   }
 
   upper_middle_class(gross){
-    return gross >= 93401 && gross <= 192400;
+    return gross >= 7784 && gross <= 16033;
   }
 
   upper_class(gross){
-    return gross >= 192401 && gross <= 415600;
+    return gross >= 16034 && gross <= 34633;
   }
 
   high_upper_class(gross){
-    return gross >= 415601 && gross <= 417300;
+    return gross >= 34634 && gross <= 34775;
   }
 
   new_money(gross){
-    return gross >= 417301;
+    return gross >= 34776;
   }
 
   computeFed(gross){
@@ -47,28 +47,26 @@ export class SingleMonthlyRateService {
       this.fed_with = gross*(10/100);
     }
     else if (this.low_middle_class(gross)) {
-      this.fed_with = 922.5 + ((gross-11525)*(15/100));
+      this.fed_with = 77.20 + ((gross-960)*(15/100));
     }
     else if (this.middle_class(gross)) {
-      this.fed_with =  5156 + ((gross-39750)*(25/100));
+      this.fed_with =  431.95 + ((gross-3325)*(25/100));
     }
     else if(this.upper_middle_class(gross)) {
-      this.fed_with = Math.round(18558.75 + ((gross-93400)*(28/100)));
+      this.fed_with = 1546.45 + ((gross-7783)*(28/100));
     }
     else if(this.upper_class(gross)) {
-      this.fed_with = 46278.75 + ((gross-192400)*(33/100));
+      this.fed_with = 3856.45 + ((gross-16033)*(33/100));
     }
     else if(this.high_upper_class(gross)) {
-      this.fed_with = 119934.75 + ((gross-415600)*(35/100));
+      this.fed_with = 9994.45 + ((gross-34633)*(35/100));
     }
     else if (this.new_money(gross)) {
-      this.fed_with = gross*(39.6/100);
+      this.fed_with = 10044 + gross*(39.6/100);
     }
-
     else {
       console.log("Else happen in single rate()");
     }
-
       return this.fed_with;
   }
 
