@@ -7,20 +7,16 @@ export class SingleMonthlyRateService {
   constructor() {
   }
 
-  test(){
-    console.log("Hello single monthly");
-  }
-
   poverty(gross){
-    return gross < 2249;
+    return gross < 188;
   }
 
   low_class(gross){
-    return gross < 11524 && gross >= 2250;
+    return gross > 188 && gross <= 960;
   }
 
   low_middle_class(gross){
-    return gross >= 11525 && gross <= 39900;
+    return gross >= 961 && gross <= 3325;
   }
 
   middle_class(gross){

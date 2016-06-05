@@ -63,22 +63,15 @@ export class FederalScreenComponent {
   fed_tax(gross, status, pay_freq) {
     // NOTE Blank HTML input elements === "" so when input is blank,  gross will be equal to zero. This way we wont a get a NaN issue.
     this.setAllnull();
-
-    if (gross == ""){
+    if (gross == "") {
       gross = 0;
     }
-
     this.gross_pay = parseInt(gross);
+    this.fed_with = this.fed_service.fed_tax(this.gross_pay, status, pay_freq);
+    this.compute_taxes();
 
-    if(status == "single") {
-      this.fed_with = this.fed_service.fed_tax(this.gross_pay, status, pay_freq);
-      this.compute_taxes();
-    }
-
-    if (status == "married"){
-      this.fed_with = this.fed_service.fed_tax(gross, status, pay_freq);
-      this.compute_taxes();
-    }
   }
+
+
 
 }

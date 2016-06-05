@@ -15,18 +15,27 @@ public gross: any;
   fed_tax(gross, status, pay_freq) {
 
     if(status === "single") {
-      if(pay_frew == "annual") {
+      if (pay_freq == "annually") {
         return this.single_annual_rate(gross);
+      }
+
+      if (pay_freq == "monthly") {
+
       }
     }
 
     if(status === "married") {
-      if(pay_freq == "annual")  {
+      if(pay_freq == "annually")  {
           return this.married_annual_rate(gross);
       }
+
+      if(pay_freq == "monthly"){
+        return;
+      }
     }
-    
    }
+
+
 
     single_annual_rate(gross) {
       this.gross = gross;
@@ -35,13 +44,18 @@ public gross: any;
     }
 
     married_annual_rate(gross){
-      this.gross = parseInt(gross);
+      this.gross = gross;
       this.fed_with = this.married_annual_rate_service.computeFed(this.gross);
       return this.fed_with;
     }
 
     single_monthly_rate(gross){
       this.gross = gross;
+      this.fed_with = this.single_monthly_rate_service.computeFed(this.gross);
+    }
+
+    married_monthly_rate(gross){
+
     }
 
 
