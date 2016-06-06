@@ -53,7 +53,7 @@ export class SingleAnnualRateService {
       this.fed_with =  5156 + ((gross-39750)*(25/100));
     }
     else if(this.upper_middle_class(gross)) {
-      this.fed_with = Math.round(18558.75 + ((gross-93400)*(28/100)));
+      this.fed_with = 18558.75 + ((gross-93400)*(28/100));
     }
     else if(this.upper_class(gross)) {
       this.fed_with = 46278.75 + ((gross-192400)*(33/100));

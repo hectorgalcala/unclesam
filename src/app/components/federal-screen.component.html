@@ -1,16 +1,17 @@
-
-
-<!-- Tax data form  -->
+<!-- Federal Tax data form  -->
 <div class="container">
   <h2>
-  Annual Salary Federal Tax Calculator
+    Annual Salary Federal Tax Calculator
   </h2>
+
   <div class="results">
     <p>Gross Pay: {{ gross_pay }}</p>
+
     <p>Federal: {{ fed_with }}</p>
     <p>Social Security: {{ social_security }}</p>
     <p>Medicare: {{ medicare }}</p>
-    <p>Net Pay Annually: {{ net_pay }} </p>
+
+    <p>Annual net: {{ annual_pay | number:'2.1-2' }} </p>
     <p>Monthly net: {{ monthly_pay | number:'2.1-2' }}</p>
     <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.1-2' }}</p>
     <p>Biweekly net: {{ biweekly_pay | number:'2.1-2'  }}</p>
@@ -19,18 +20,9 @@
 
   <div class="tax-form">
     <form>
+
       <p>Gross Pay</p>
       <input type="number" placeholder="" value="{{ gross_pay }}" #gross_amount>
-
-      <!-- <p>Gross Pay Method</p> -->
-        <!-- <p>Annually, Pay Per Period -->
-              <!-- <select name="Gross Pay Method" id="pay_method">
-        <option value="Per Pay Period">Per Pay Period</option>
-        <option value="Annual">Annually</option>
-      </select> -->
-
-      <!-- <p>Gross Pay YTD</p>
-      <input type="text" placeholder="" [value]="gross_pay"> -->
 
       <p>Pay Frequency </p>
       <select name="Gross Pay Method" #pay_freq>
@@ -40,15 +32,15 @@
 
       <p>Federal Filing Status</p>
       <select name="Gross Pay Method"  #file_status>
-          <option value="married">Married</option>
           <option value="single">Single</option>
+          <option value="married">Married</option>
           <option value="single">Married Single Rate</option>
       </select>
 
-      <!-- <p># of Federal Allowances</p>
+      <!-- <p>Number of Federal Allowances</p>
       <input type="text" placeholder=""> -->
 
-    <input type="submit" (click)="fed_tax(gross_amount.value, file_status.value, pay_freq.value)">
+      <input type="submit"  (click)="fed_tax(gross_amount.value, file_status.value, pay_freq.value)">
     </form>
   </div>
 </div>
