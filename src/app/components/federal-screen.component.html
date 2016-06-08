@@ -22,7 +22,7 @@
     <form>
 
       <p>Gross Pay</p>
-      <input type="number" placeholder="" value="{{ gross_pay }}" #gross_amount>
+      <input type="number" placeholder="" value="{{ gross_pay }}" #gross>
 
       <p>Pay Frequency </p>
       <select name="Gross Pay Method" #pay_freq>
@@ -40,7 +40,7 @@
       <!-- <p>Number of Federal Allowances</p>
       <input type="text" placeholder=""> -->
 
-      <input type="submit"  (click)="fed_tax(gross_amount.value, file_status.value, pay_freq.value)">
+      <input type="submit"  (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">
     </form>
   </div>
 </div>

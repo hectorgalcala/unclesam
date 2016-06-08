@@ -7,14 +7,16 @@ import {FederalTax} from '../models/federal-tax.interface';
 
 // Services
 import {FederalWithholdingService} from '../service/federal-withholding.service';
-  // Annual Rate Federal Withholding
+
+// Annual Rate Federal Withholding
 import {SingleAnnualRateService} from '../service/single-status/single-annual-rate.service';
 import {MarriedAnnualRateService} from '../service/married-status/married-annual-rate.service';
-  // Monthly Rate Federal Withholding
+
+// Monthly Rate Federal Withholding
 import {SingleMonthlyRateService} from '../service/single-status/single-monthly-rate.service';
 import {MarriedMonthlyRateService} from '../service/married-status/married-monthly-rate.service';
 
-  //Income Statement data such as Salary After Taxes
+// Income Statement data such as Salary After Taxes
 import {IncomeStatementService} from '../service/income-statement/income-statement.service';
 
 @Component({
@@ -50,15 +52,15 @@ export class FederalScreenComponent {
   public weekly_pay: number;
 
   constructor(private fed_service: FederalWithholdingService, private income_statement: IncomeStatementService) {
-    // this.setAllnull();
+    this.setAllnull();
     this.gross_pay = 8000;
-    // this.fed_tax(this.gross_pay, "single", "monthly");
   }
 
   setAllnull() {
     this.fed_with = null;
     this.social_security = null;
     this.medicare = null;
+    this.gross_pay = null;
   }
 
   yearly_net_income(gross_pay, taxes) {
