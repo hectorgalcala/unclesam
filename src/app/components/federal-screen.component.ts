@@ -84,12 +84,10 @@ export class FederalScreenComponent {
     this.medicare = this.gross_pay*0.0145;
     this.taxes = this.fed_with + this.social_security + this.medicare;
     if(this.pay_freq == "monthly"){
-      console.log('monthly');
       this.monthly_net_income(this.gross_pay, this.taxes);
     }
 
     if(this.pay_freq == "annually"){
-      console.log("annually");
       this.yearly_net_income(this.gross_pay, this.taxes);
     }
   }
