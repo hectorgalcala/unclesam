@@ -4,7 +4,7 @@
 /dist
 /tmp
 # for now
-app.js
+
 # dependencies
 
 /bower_components
