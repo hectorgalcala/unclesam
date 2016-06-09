@@ -6,18 +6,6 @@
   "apps": [
     {"main": "src/main.ts", "tsconfig": "src/tsconfig.json"}
   ],
-  "addons": [],
-  "packages": [],
-  "e2e": {
-    "protractor": {
-      "config": "config/protractor.conf.js"
-    }
-  },
-  "test": {
-    "karma": {
-      "config": "config/karma.conf.js"
-    }
-  },
   "defaults": {
     "prefix": "app",
     "sourceDir": "src"
