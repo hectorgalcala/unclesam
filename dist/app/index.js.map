@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";AAAA,4BAA0B,eAAe,CAAC;AAAlC,gDAAkC;AAC1C,yCAAqC,uCAAuC,CAAC;AAArE,mFAAqE","sourcesContent":["export {environment} from './environment';\nexport {FederalScreenComponent} from './components/federal-screen.component';\n"]}
