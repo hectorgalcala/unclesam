@@ -5,12 +5,10 @@
   </h2>
 
   <div class="results">
-    <p>Gross Pay: {{ gross_pay }}</p>
-
-    <p>Federal: {{ fed_with }}</p>
-    <p>Social Security: {{ social_security }}</p>
-    <p>Medicare: {{ medicare }}</p>
-
+    <p>Gross Pay: {{ gross_pay | number:'2.1-2' }}</p>
+    <p>Federal: {{ fed_with | number:'2.1-2' }}</p>
+    <p>Social Security: {{ social_security | number:'2.1-2' }}</p>
+    <p>Medicare: {{ medicare | number:'2.1-2' }}</p>
     <p>Annual net: {{ annual_pay | number:'2.1-2' }} </p>
     <p>Monthly net: {{ monthly_pay | number:'2.1-2' }}</p>
     <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.1-2' }}</p>
