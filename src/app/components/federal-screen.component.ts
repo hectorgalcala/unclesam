@@ -52,6 +52,7 @@ export class FederalScreenComponent {
   public weekly_pay: number;
 
   constructor(private fed_service: FederalWithholdingService, private income_statement: IncomeStatementService) {
+    console.log("uncle sam on the go");
     this.setAllnull();
     this.gross_pay = 8000;
   }
