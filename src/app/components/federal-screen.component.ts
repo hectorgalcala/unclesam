@@ -53,7 +53,7 @@ export class FederalScreenComponent {
 
   constructor(private fed_service: FederalWithholdingService, private income_statement: IncomeStatementService) {
     this.setAllnull();
-    this.gross_pay = 8000;
+    this.gross_pay = 50000;
   }
 
   setAllnull() {

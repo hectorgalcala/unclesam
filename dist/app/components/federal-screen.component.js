@@ -25,7 +25,7 @@ var FederalScreenComponent = (function () {
         this.fed_service = fed_service;
         this.income_statement = income_statement;
         this.setAllnull();
-        this.gross_pay = 8000;
+        this.gross_pay = 50000;
     }
     FederalScreenComponent.prototype.setAllnull = function () {
         this.fed_with = null;
