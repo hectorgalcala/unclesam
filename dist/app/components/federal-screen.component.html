@@ -10,8 +10,8 @@
 
       <p>Pay Frequency </p>
       <select name="Gross Pay Method" #pay_freq>
-        <option value="monthly">Monthly</option>
         <option value="annually">Annually</option>
+        <option value="monthly">Monthly</option>
       </select>
 
       <p>Federal Filing Status</p>
@@ -21,7 +21,7 @@
           <option value="single">Married Single Rate</option>
       </select>
 
-      <input type="submit"  (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">
+      <input type="submit" (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">
     </form>
   </div>
 
