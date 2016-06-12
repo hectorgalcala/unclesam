@@ -5,5 +5,5 @@ import { FederalScreenComponent, environment } from './app/';
 if (environment.production) {
   enableProdMode();
 }
-console.log("HELLO SAM");
+
 bootstrap(FederalScreenComponent);

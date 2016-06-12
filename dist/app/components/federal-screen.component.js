@@ -24,7 +24,6 @@ var FederalScreenComponent = (function () {
     function FederalScreenComponent(fed_service, income_statement) {
         this.fed_service = fed_service;
         this.income_statement = income_statement;
-        console.log("uncle sam on the go");
         this.setAllnull();
         this.gross_pay = 8000;
     }
