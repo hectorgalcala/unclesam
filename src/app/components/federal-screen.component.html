@@ -1,14 +1,11 @@
 <!-- Federal Tax data form  -->
 <div class="container">
-  <h4>
-    Annual Salary Federal Tax Calculator
-  </h4>
-  <div class="tax-form">
+   <div class="tax-form">
     <form>
       <p>Taxable Gross Pay</p>
       <input type="number" placeholder="" value="{{ gross_pay }}" #gross>
 
-      <p>Pay Frequency </p>
+      <p>Pay Frequency</p>
       <select name="Gross Pay Method" #pay_freq>
         <option value="monthly">Monthly</option>
         <option value="annually">Annually</option>
@@ -32,8 +29,5 @@
     <p>Medicare: {{ medicare | number:'2.2-2' }}</p>
     <p>Annual net: {{ annual_pay | number:'2.2-2' }} </p>
     <p>Monthly net: {{ monthly_pay | number:'2.2-2' }}</p>
-    <!-- <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.2-2' }}</p> -->
-    <!-- <p>Biweekly net: {{ biweekly_pay | number:'2.2-2'  }}</p> -->
-    <!-- <p>Weekly net: {{ weekly_pay | number:'2.2-2' }}</p> -->
   </div>
 </div>

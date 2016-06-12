@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 // Angular 2 objects
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 // Services
 var federal_withholding_service_1 = require('../service/federal-withholding.service');
 // Annual Rate Federal Withholding
@@ -26,7 +27,7 @@ var FederalScreenComponent = (function () {
         this.income_statement = income_statement;
         console.log("uncle sam on the go");
         this.setAllnull();
-        this.gross_pay = 8000;
+        this.gross_pay = 50000;
     }
     FederalScreenComponent.prototype.setAllnull = function () {
         this.fed_with = null;
@@ -76,7 +77,8 @@ var FederalScreenComponent = (function () {
             selector: 'federal-screen',
             templateUrl: 'federal-screen.component.html',
             styleUrls: ['federal-screen.component.css'],
-            providers: [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService, single_annual_rate_service_1.SingleAnnualRateService, married_annual_rate_service_1.MarriedAnnualRateService, single_monthly_rate_service_1.SingleMonthlyRateService, married_monthly_rate_service_1.MarriedMonthlyRateService]
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [router_1.Router, router_1.ROUTER_PROVIDERS, federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService, single_annual_rate_service_1.SingleAnnualRateService, married_annual_rate_service_1.MarriedAnnualRateService, single_monthly_rate_service_1.SingleMonthlyRateService, married_monthly_rate_service_1.MarriedMonthlyRateService]
         }), 
         __metadata('design:paramtypes', [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService])
     ], FederalScreenComponent);

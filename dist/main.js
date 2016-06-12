@@ -5,6 +5,7 @@ var _1 = require('./app/');
 if (_1.environment.production) {
     core_1.enableProdMode();
 }
-console.log("HELLO SAM");
-platform_browser_dynamic_1.bootstrap(_1.FederalScreenComponent);
+// bootstrap(FederalScreenComponent);
+// bootstrap(YourRateComponent);
+platform_browser_dynamic_1.bootstrap(_1.AppComponent);
 //# sourceMappingURL=main.js.map

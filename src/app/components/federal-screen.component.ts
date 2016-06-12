@@ -1,7 +1,9 @@
 
 // Angular 2 objects
 import {Component} from '@angular/core';
-
+import { Routes, ROUTER_DIRECTIVES, Router, ROUTER_PROVIDERS } from '@angular/router';
+// components
+import {YourRateComponent} from './yourrate/yourrate.component';
 // Interface
 import {FederalTax} from '../models/federal-tax.interface';
 
@@ -24,8 +26,10 @@ import {IncomeStatementService} from '../service/income-statement/income-stateme
   selector: 'federal-screen',
   templateUrl: 'federal-screen.component.html',
   styleUrls: ['federal-screen.component.css'],
-  providers:[FederalWithholdingService, IncomeStatementService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService, MarriedMonthlyRateService]
+  directives:[ROUTER_DIRECTIVES],
+  providers:[Router, ROUTER_PROVIDERS,FederalWithholdingService, IncomeStatementService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService, MarriedMonthlyRateService]
 })
+
 export class FederalScreenComponent {
 
   // Additional w2/payroll taxes
@@ -54,7 +58,7 @@ export class FederalScreenComponent {
   constructor(private fed_service: FederalWithholdingService, private income_statement: IncomeStatementService) {
     console.log("uncle sam on the go");
     this.setAllnull();
-    this.gross_pay = 8000;
+    this.gross_pay = 50000;
   }
 
   setAllnull() {

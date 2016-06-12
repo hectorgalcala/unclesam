@@ -5,9 +5,9 @@
 # for now
 
 # dependencies
-
-/bower_components
 /node_modules
+/bower_components
+
 /typings
 # IDEs and editors
 /.idea
