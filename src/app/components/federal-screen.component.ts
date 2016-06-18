@@ -21,7 +21,7 @@ import {IncomeStatementService} from '../services/income-statement/income-statem
 @Component({
   moduleId: module.id,
   selector: 'federal-screen',
-  templateUrl: 'federal-screen.component2.html',
+  templateUrl: 'federal-screen.component.html',
   styleUrls: ['federal-screen.component.css'],
   providers:[FederalWithholdingService, IncomeStatementService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService, MarriedMonthlyRateService]
 })

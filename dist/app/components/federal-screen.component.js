@@ -73,7 +73,7 @@ var FederalScreenComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'federal-screen',
-            templateUrl: 'federal-screen.component2.html',
+            templateUrl: 'federal-screen.component.html',
             styleUrls: ['federal-screen.component.css'],
             providers: [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService, single_annual_rate_service_1.SingleAnnualRateService, married_annual_rate_service_1.MarriedAnnualRateService, single_monthly_rate_service_1.SingleMonthlyRateService, married_monthly_rate_service_1.MarriedMonthlyRateService]
         }), 

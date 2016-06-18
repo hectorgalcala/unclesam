@@ -1,75 +1,61 @@
-<!-- Federal Tax data form  -->
-<div class="container">
-  <h4>
-    Annual Salary Federal Tax Calculator
-  </h4>
-  <div class="tax-form row">
-    <form>
-      <div class="input-groups">
-        <p>Taxable Gross Pay</p>
-        <input type="number" placeholder="" value="{{ gross_pay }}" #gross>
+<div class="calculate">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns heading">
+        <h1>Uncle Sam</h1>
+        <h2>A better way to calculate your annual salary paycheck taxes.</h2>
       </div>
-
-      <div class="input-groups">
-        <p>Pay Frequency </p>
-        <select name="Gross Pay Method" #pay_freq>
-          <option value="annually">Annually</option>
-          <option value="monthly">Monthly</option>
-        </select>
-      </div>
-
-
-      <div class="input-groups">
-        <p>Federal Filing Status</p>
-        <select name="Filling Status"  #file_status>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="single">Married Single Rate</option>
-        </select>
-      </div>
-      <input type="submit" (click)="fed_tax(gross.value, file_status.value, pay_freq.value)" value="Calculate Taxes">
-    </form>
+    </div>
   </div>
 
-  <div class="results">
-    <p>Taxable Gross Pay: {{ gross_pay | number:'2.2-2' }}</p>
-    <p>Federal: {{ fed_with | number:'2.2-2' }}</p>
-    <p>Social Security: {{ social_security | number:'2.2-2' }}</p>
-    <p>Medicare: {{ medicare | number:'2.2-2' }}</p>
-    <p>Annual net: {{ annual_pay | number:'2.2-2' }} </p>
-    <p>Monthly net: {{ monthly_pay | number:'2.2-2' }}</p>
+  <div class="container">
+    <div class="row">
+      <div class="six offset-by-three columns calculator">
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" placeholder="Amount" value='50000' #gross>
+              <div class="input-group-label" style="width:60%">Salary Gross Pay</div>
+            </div>
+            <div class="form-helper">How much is your salary offer?</div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <!-- <input id="hours" type="text" placeholder="Hours" #pay_freq> -->
+              <select name="Gross Pay Method" #pay_freq>
+                <option value="annually">Annually</option>
+                <option value="monthly">Monthly</option>
+              </select>
+              <div class="input-group-label">Pay frequency</div>
+            </div>
+            <div class="form-helper">Monthly? Annually?</div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <!-- <input type="text" placeholder="Week" #filling_status> -->
+              <select name="Filling Status"  #file_status>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="single">Married Single Rate</option>
+              </select>
+              <div class="input-group-label">Filling Status: Single, Married?</div>
+            </div>
+          </div>
+          <button (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">Calcutate net Salary</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
+
+  <div class="container results">
+    <div class="results">
+      <p>Taxable Gross Pay: {{ gross_pay | number:'2.2-2' }}</p>
+      <p>Federal: {{ fed_with | number:'2.2-2' }}</p>
+      <p>Social Security: {{ social_security | number:'2.2-2' }}</p>
+      <p>Medicare: {{ medicare | number:'2.2-2' }}</p>
+      <p>Annual net: {{ annual_pay | number:'2.2-2' }} </p>
+      <p>Monthly net: {{ monthly_pay | number:'2.2-2' }}</p>
+    </div>
   </div>
 </div>
-<!-- <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.2-2' }}</p>
-<p>Biweekly net: {{ biweekly_pay | number:'2.2-2'  }}</p>
-<p>Weekly net: {{ weekly_pay | number:'2.2-2' }}</p> -->
-
-
-
-<!-- TODO BK home screen version -->
-<!-- <div class="jumbotron">
-  <h1>Federal Income Tax Calculator</h1>
-  <form>
-    <p>Gross Income</p>
-    $<input #income placeholder='10,000'>
-    <p>Marital Status</p>
-    <select #marital>
-      <option value="single">single</option>
-      <option value="marriedjoint">married joint</option>
-      <option value="marriedseperate">married seperately</option>
-      <option value="headofhousehold">Heads of Household</option>
-    </select>
-    <p>Pay Period</p>
-    <select #payperiod>
-      <option value="annually">annually</option>
-      <option value="monthly">monthly</option>
-    </select>
-  </form>
-  <p></p>
-
-  <button click="computetax(income.value, marital.value, payperiod.value)" class="btn btn-success">Calculate</button>
-
-  <p>Your Total Federal income tax withholding is</p>
-  <p>$ {{ fed_with | number:'2.2-2'}}</p>
-</div> -->
