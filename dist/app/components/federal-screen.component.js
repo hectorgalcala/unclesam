@@ -11,15 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // Angular 2 objects
 var core_1 = require('@angular/core');
 // Services
-var federal_withholding_service_1 = require('../service/federal-withholding.service');
+var federal_withholding_service_1 = require('../services/federal-withholding.service');
 // Annual Rate Federal Withholding
-var single_annual_rate_service_1 = require('../service/single-status/single-annual-rate.service');
-var married_annual_rate_service_1 = require('../service/married-status/married-annual-rate.service');
+var single_annual_rate_service_1 = require('../services/single-status/single-annual-rate.service');
+var married_annual_rate_service_1 = require('../services/married-status/married-annual-rate.service');
 // Monthly Rate Federal Withholding
-var single_monthly_rate_service_1 = require('../service/single-status/single-monthly-rate.service');
-var married_monthly_rate_service_1 = require('../service/married-status/married-monthly-rate.service');
+var single_monthly_rate_service_1 = require('../services/single-status/single-monthly-rate.service');
+var married_monthly_rate_service_1 = require('../services/married-status/married-monthly-rate.service');
 // Income Statement data such as Salary After Taxes
-var income_statement_service_1 = require('../service/income-statement/income-statement.service');
+var income_statement_service_1 = require('../services/income-statement/income-statement.service');
 var FederalScreenComponent = (function () {
     function FederalScreenComponent(fed_service, income_statement) {
         this.fed_service = fed_service;
@@ -73,7 +73,7 @@ var FederalScreenComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'federal-screen',
-            templateUrl: 'federal-screen.component.html',
+            templateUrl: 'federal-screen.component2.html',
             styleUrls: ['federal-screen.component.css'],
             providers: [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService, single_annual_rate_service_1.SingleAnnualRateService, married_annual_rate_service_1.MarriedAnnualRateService, single_monthly_rate_service_1.SingleMonthlyRateService, married_monthly_rate_service_1.MarriedMonthlyRateService]
         }), 

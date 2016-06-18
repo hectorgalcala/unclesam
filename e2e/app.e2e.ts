@@ -1,14 +1,14 @@
-import { HomeScreenPage } from './app.po';
+import { TaxCalculatorPage } from './app.po';
 
-describe('fl-sam App', function() {
-  let page: HomeScreenPage;
+describe('tax-calculator App', function() {
+  let page: TaxCalculatorPage;
 
   beforeEach(() => {
-    page = new HomeScreenPage();
-  })
+    page = new TaxCalculatorPage();
+  });
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('fl-sam works!');
+    expect(page.getParagraphText()).toEqual('tax-calculator works!');
   });
 });

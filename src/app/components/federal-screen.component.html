@@ -14,7 +14,7 @@
         <p>Pay Frequency </p>
         <select name="Gross Pay Method" #pay_freq>
           <option value="annually">Annually</option>
-          <!-- <option value="monthly">Monthly</option> -->
+          <option value="monthly">Monthly</option>
         </select>
       </div>
 
@@ -38,8 +38,38 @@
     <p>Medicare: {{ medicare | number:'2.2-2' }}</p>
     <p>Annual net: {{ annual_pay | number:'2.2-2' }} </p>
     <p>Monthly net: {{ monthly_pay | number:'2.2-2' }}</p>
-    <!-- <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.2-2' }}</p>
-    <p>Biweekly net: {{ biweekly_pay | number:'2.2-2'  }}</p>
-    <p>Weekly net: {{ weekly_pay | number:'2.2-2' }}</p> -->
+
   </div>
 </div>
+<!-- <p>Semi-monthly net: {{ semi_monthly_pay | number:'2.2-2' }}</p>
+<p>Biweekly net: {{ biweekly_pay | number:'2.2-2'  }}</p>
+<p>Weekly net: {{ weekly_pay | number:'2.2-2' }}</p> -->
+
+
+
+<!-- TODO BK home screen version -->
+<!-- <div class="jumbotron">
+  <h1>Federal Income Tax Calculator</h1>
+  <form>
+    <p>Gross Income</p>
+    $<input #income placeholder='10,000'>
+    <p>Marital Status</p>
+    <select #marital>
+      <option value="single">single</option>
+      <option value="marriedjoint">married joint</option>
+      <option value="marriedseperate">married seperately</option>
+      <option value="headofhousehold">Heads of Household</option>
+    </select>
+    <p>Pay Period</p>
+    <select #payperiod>
+      <option value="annually">annually</option>
+      <option value="monthly">monthly</option>
+    </select>
+  </form>
+  <p></p>
+
+  <button click="computetax(income.value, marital.value, payperiod.value)" class="btn btn-success">Calculate</button>
+
+  <p>Your Total Federal income tax withholding is</p>
+  <p>$ {{ fed_with | number:'2.2-2'}}</p>
+</div> -->

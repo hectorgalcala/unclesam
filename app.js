@@ -5,7 +5,7 @@ var path = require('path');
 var port = process.env.PORT || 5000
 var app = express();
 
-// expose node_modules to client app
+// // expose node_modules to client app
 app.use(express.static(__dirname + "/node_modules"));
 app.use(express.static(path.join(__dirname, 'dist')));
 // app.use(express.static(path.join(__dirname, 'src/app')));

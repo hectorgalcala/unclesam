@@ -1,4 +1,3 @@
-
 // Angular 2 objects
 import {Component} from '@angular/core';
 
@@ -6,23 +5,23 @@ import {Component} from '@angular/core';
 import {FederalTax} from '../models/federal-tax.interface';
 
 // Services
-import {FederalWithholdingService} from '../service/federal-withholding.service';
+import {FederalWithholdingService} from '../services/federal-withholding.service';
 
 // Annual Rate Federal Withholding
-import {SingleAnnualRateService} from '../service/single-status/single-annual-rate.service';
-import {MarriedAnnualRateService} from '../service/married-status/married-annual-rate.service';
+import {SingleAnnualRateService} from '../services/single-status/single-annual-rate.service';
+import {MarriedAnnualRateService} from '../services/married-status/married-annual-rate.service';
 
 // Monthly Rate Federal Withholding
-import {SingleMonthlyRateService} from '../service/single-status/single-monthly-rate.service';
-import {MarriedMonthlyRateService} from '../service/married-status/married-monthly-rate.service';
+import {SingleMonthlyRateService} from '../services/single-status/single-monthly-rate.service';
+import {MarriedMonthlyRateService} from '../services/married-status/married-monthly-rate.service';
 
 // Income Statement data such as Salary After Taxes
-import {IncomeStatementService} from '../service/income-statement/income-statement.service';
+import {IncomeStatementService} from '../services/income-statement/income-statement.service';
 
 @Component({
   moduleId: module.id,
   selector: 'federal-screen',
-  templateUrl: 'federal-screen.component.html',
+  templateUrl: 'federal-screen.component2.html',
   styleUrls: ['federal-screen.component.css'],
   providers:[FederalWithholdingService, IncomeStatementService, SingleAnnualRateService, MarriedAnnualRateService, SingleMonthlyRateService, MarriedMonthlyRateService]
 })
@@ -78,6 +77,7 @@ export class FederalScreenComponent {
     this.biweekly_pay = this.annual_pay/26
     this.weekly_pay = this.annual_pay/52;
   }
+
 
   compute_taxes() {
     this.social_security = this.gross_pay*0.062;
