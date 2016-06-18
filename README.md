@@ -1,4 +1,16 @@
-# TaxCalculator
-TaxCalculator using Angular 2
-2016 Federal Tax withholding calculator using Angular 2
-Demo can be found here: http://bkim8815.github.io/TaxCalculator/
+## Uncle Sam Simple Salary Federal Tax Calculator
+
+### Step 1
+```bash
+npm install
+```
+
+### Step 2
+```bash
+npm install -g angular-cli
+```
+
+### Step 3
+```bash
+ng serve
+```
