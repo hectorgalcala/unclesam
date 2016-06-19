@@ -53,6 +53,7 @@ export class FederalScreenComponent {
   constructor(private fed_service: FederalWithholdingService, private income_statement: IncomeStatementService) {
     this.setAllnull();
     this.gross_pay = 50000;
+    this.fed_tax(this.gross_pay, "single", "annually");
   }
 
   setAllnull() {
@@ -104,11 +105,9 @@ export class FederalScreenComponent {
 
   medicare_tax(gross){
     if(gross >= 200000){
-    console.log("if");
     var medicare = 200000*0.0145 + ((gross - 200000)*0.0235);
     }
     else {
-    console.log("else");
     var medicare = gross*0.0145;
     }
     return medicare;

@@ -19,7 +19,6 @@ var FederalWithholdingService = (function () {
         this.married_annual_rate_service = married_annual_rate_service;
         this.single_monthly_rate_service = single_monthly_rate_service;
         this.married_monthly_rate_service = married_monthly_rate_service;
-        this.fed_with = null;
     }
     FederalWithholdingService.prototype.fed_tax = function (gross, status, pay_freq) {
         if (status === "single") {

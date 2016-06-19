@@ -324,7 +324,7 @@ h5 {
 }
 .input-group-label {
   display: table-cell;
-  width: 75%;
+  width: 90%;
   padding: 6px 15px;
   background: rgba(0, 0, 0, .2);
   color: #fff;
