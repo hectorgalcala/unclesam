@@ -80,8 +80,8 @@ export class FederalScreenComponent {
 
 
   compute_taxes() {
-    this.social_security = this.gross_pay*0.062;
-    this.medicare = this.gross_pay*0.0145;
+    this.social_security = this.social_security_tax(this.gross_pay);
+    this.medicare = this.medicare_tax(this.gross_pay);
     this.taxes = this.fed_with + this.social_security + this.medicare;
     if(this.pay_freq == "monthly"){
       this.monthly_net_income(this.gross_pay, this.taxes);
@@ -90,6 +90,28 @@ export class FederalScreenComponent {
     if(this.pay_freq == "annually"){
       this.yearly_net_income(this.gross_pay, this.taxes);
     }
+  }
+
+  social_security_tax(gross){
+    if(gross >= 118500){
+      this.social_security = 118500*0.062;
+    }
+    else {
+      this.social_security = gross*0.062;
+    }
+    return this.social_security;
+  }
+
+  medicare_tax(gross){
+    if(gross >= 200000){
+    console.log("if");
+    var medicare = 200000*0.0145 + ((gross - 200000)*0.0235);
+    }
+    else {
+    console.log("else");
+    var medicare = gross*0.0145;
+    }
+    return medicare;
   }
 
   // NOTE Blank HTML input elements === "" so when input is blank,  gross will be equal to zero. This way we wont a get a NaN issue.
