@@ -1,0 +1,1 @@
+{"version":3,"file":"federal-tax.interface.js","sourceRoot":"","sources":["federal-tax.interface.ts"],"names":[],"mappings":"","sourcesContent":["export interface FederalTax {\n  gross_pay: number;\n  gross_ytd: number;\n  pay_freq: string;\n  fed_status: string;\n  fed_allow: number;\n  fed_with: number;\n}\n"]}
