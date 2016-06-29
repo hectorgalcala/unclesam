@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 // Angular 2 objects
 var core_1 = require('@angular/core');
+// Models
+var paycheck_model_1 = require('../models/paycheck.model');
+var income_statement_model_1 = require('../models/income-statement.model');
 // Services
 var federal_withholding_service_1 = require('../services/federal-withholding.service');
 // Annual Rate Federal Withholding
@@ -21,71 +24,76 @@ var married_monthly_rate_service_1 = require('../services/married-status/married
 // Income Statement data such as Salary After Taxes
 var income_statement_service_1 = require('../services/income-statement/income-statement.service');
 var FederalScreenComponent = (function () {
-    function FederalScreenComponent(fed_service, income_statement) {
+    function FederalScreenComponent(fed_service) {
         this.fed_service = fed_service;
-        this.income_statement = income_statement;
-        this.setAllnull();
-        this.gross_pay = 50000;
-        this.fed_tax(this.gross_pay, "single", "annually");
     }
+    FederalScreenComponent.prototype.ngOnInit = function () {
+        this.paycheck = new paycheck_model_1.Paycheck();
+        this.income_statement = new income_statement_model_1.IncomeStatement();
+        this.setAllnull();
+        this.paycheck.gross_pay = 50000;
+        this.fed_tax(this.paycheck.gross_pay, "single", "annually");
+    };
     FederalScreenComponent.prototype.setAllnull = function () {
-        this.fed_with = null;
-        this.social_security = null;
-        this.medicare = null;
-        this.gross_pay = null;
+        this.paycheck.fed_with = null;
+        this.paycheck.social_security = null;
+        this.paycheck.medicare = null;
+        this.paycheck.gross_pay = null;
     };
     FederalScreenComponent.prototype.yearly_net_income = function (gross_pay, taxes) {
-        this.annual_pay = gross_pay - taxes;
-        this.monthly_pay = this.annual_pay / 12;
-        this.semi_monthly_pay = this.annual_pay / 24;
-        this.biweekly_pay = this.annual_pay / 26;
-        this.weekly_pay = this.annual_pay / 52;
+        this.income_statement.annual_pay = (gross_pay - taxes);
+        this.income_statement.monthly_pay = this.income_statement.annual_pay / 12;
+        this.income_statement.semi_monthly_pay = this.income_statement.annual_pay / 24;
+        this.income_statement.biweekly_pay = this.income_statement.annual_pay / 26;
+        this.income_statement.weekly_pay = this.income_statement.annual_pay / 52;
+        console.log("income statement model: ", this.income_statement);
     };
     FederalScreenComponent.prototype.monthly_net_income = function (gross_pay, taxes) {
-        this.annual_pay = (gross_pay - taxes) * 12;
-        this.monthly_pay = this.annual_pay / 12;
-        this.semi_monthly_pay = this.annual_pay / 24;
-        this.biweekly_pay = this.annual_pay / 26;
-        this.weekly_pay = this.annual_pay / 52;
+        this.income_statement.annual_pay = (gross_pay - taxes) * 12;
+        this.income_statement.monthly_pay = this.income_statement.annual_pay / 12;
+        this.income_statement.semi_monthly_pay = this.income_statement.annual_pay / 24;
+        this.income_statement.biweekly_pay = this.income_statement.annual_pay / 26;
+        this.income_statement.weekly_pay = this.income_statement.annual_pay / 52;
+        console.log("income statement model: ", this.income_statement);
     };
     FederalScreenComponent.prototype.compute_taxes = function () {
-        this.social_security = this.social_security_tax(this.gross_pay);
-        this.medicare = this.medicare_tax(this.gross_pay);
-        this.taxes = this.fed_with + this.social_security + this.medicare;
-        if (this.pay_freq == "monthly") {
-            this.monthly_net_income(this.gross_pay, this.taxes);
+        this.paycheck.social_security = this.social_security_tax(this.paycheck.gross_pay);
+        this.paycheck.medicare = this.medicare_tax(this.paycheck.gross_pay);
+        this.income_statement.taxes = this.paycheck.fed_with + this.paycheck.social_security + this.paycheck.medicare;
+        if (this.paycheck.pay_freq == "monthly") {
+            this.monthly_net_income(this.paycheck.gross_pay, this.income_statement.taxes);
         }
-        if (this.pay_freq == "annually") {
-            this.yearly_net_income(this.gross_pay, this.taxes);
+        if (this.paycheck.pay_freq == "annually") {
+            this.yearly_net_income(this.paycheck.gross_pay, this.income_statement.taxes);
         }
     };
     FederalScreenComponent.prototype.social_security_tax = function (gross) {
         if (gross >= 118500) {
-            this.social_security = 118500 * 0.062;
+            this.paycheck.social_security = 118500 * 0.062;
         }
         else {
-            this.social_security = gross * 0.062;
+            this.paycheck.social_security = gross * 0.062;
         }
-        return this.social_security;
+        return this.paycheck.social_security;
     };
     FederalScreenComponent.prototype.medicare_tax = function (gross) {
         if (gross >= 200000) {
-            var medicare = 200000 * 0.0145 + ((gross - 200000) * 0.0235);
+            this.paycheck.medicare = 200000 * 0.0145 + ((gross - 200000) * 0.0235);
         }
         else {
-            var medicare = gross * 0.0145;
+            this.paycheck.medicare = gross * 0.0145;
         }
-        return medicare;
+        return this.paycheck.medicare;
     };
     // NOTE Blank HTML input elements === "" so when input is blank,  gross will be equal to zero. This way we wont a get a NaN issue.
     FederalScreenComponent.prototype.fed_tax = function (gross, status, pay_freq) {
         if (gross == "") {
             gross = 0;
         }
-        this.gross_pay = parseInt(gross);
-        this.fed_status = status;
-        this.pay_freq = pay_freq;
-        this.fed_with = this.fed_service.fed_tax(this.gross_pay, this.fed_status, this.pay_freq);
+        this.paycheck.gross_pay = parseInt(gross);
+        this.paycheck.fed_status = status;
+        this.paycheck.pay_freq = pay_freq;
+        this.paycheck.fed_with = this.fed_service.fed_tax(this.paycheck.gross_pay, this.paycheck.fed_status, this.paycheck.pay_freq);
         this.compute_taxes();
     };
     FederalScreenComponent = __decorate([
@@ -96,7 +104,7 @@ var FederalScreenComponent = (function () {
             styleUrls: ['federal-screen.component.css'],
             providers: [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService, single_annual_rate_service_1.SingleAnnualRateService, married_annual_rate_service_1.MarriedAnnualRateService, single_monthly_rate_service_1.SingleMonthlyRateService, married_monthly_rate_service_1.MarriedMonthlyRateService]
         }), 
-        __metadata('design:paramtypes', [federal_withholding_service_1.FederalWithholdingService, income_statement_service_1.IncomeStatementService])
+        __metadata('design:paramtypes', [federal_withholding_service_1.FederalWithholdingService])
     ], FederalScreenComponent);
     return FederalScreenComponent;
 }());

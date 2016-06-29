@@ -311,7 +311,8 @@ h5 {
 }
 .calculator button:focus, .calculator button:hover {
   background: #fff;
-  color: #5b65a7
+  /*color: #5b65a7*/
+  color: #0022ff;
 }
 .form-group {
   display: block;
@@ -323,9 +324,10 @@ h5 {
   border-collapse: separate
 }
 .input-group-label {
-  display: table-cell;
+  display: inline;
   width: 90%;
-  padding: 6px 15px;
+  /*padding: 6px 15px;*/
+  padding: 12px 15px;
   background: rgba(0, 0, 0, .2);
   color: #fff;
   text-align: right;

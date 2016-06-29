@@ -8,13 +8,13 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" id="paycheck-form">
     <div class="row">
       <div class="six offset-by-three columns calculator">
         <form>
           <div class="form-group">
             <div class="input-group">
-              <input type="number" placeholder="Amount" value='50000' #gross>
+              <input type="number" placeholder="Amount" value='50000' (keyup.enter)="fed_tax(gross.value, file_status.value, pay_freq.value)" #gross>
               <div class="input-group-label">Salary Gross Pay</div>
             </div>
             <div class="form-helper">How much is your salary offer?</div>
@@ -33,12 +33,13 @@
           <div class="form-group">
             <div class="input-group">
               <!-- <input type="text" placeholder="Week" #filling_status> -->
+              <div class="form-helper"> Whats your filling status: Single, Married?</div>
               <select name="Filling Status"  #file_status>
                 <option value="single">Single</option>
                 <option value="married">Married</option>
                 <option value="single">Married Single Rate</option>
               </select>
-              <div class="input-group-label">Filling Status: Single, Married?</div>
+              <div class="input-group-label">Filling Status</div>
             </div>
           </div>
           <button (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">Calcutate net Salary</button>
@@ -50,12 +51,12 @@
 
   <div class="container results">
     <div class="results">
-      <p>Taxable Gross Pay: {{ gross_pay | number:'2.2-2' }}</p>
-      <p>Federal: {{ fed_with | number:'2.2-2' }}</p>
-      <p>Social Security: {{ social_security | number:'2.2-2' }}</p>
-      <p>Medicare: {{ medicare | number:'2.2-2' }}</p>
-      <p>Annual net: {{ annual_pay | number:'2.2-2' }} </p>
-      <p>Monthly net: {{ monthly_pay | number:'2.2-2' }}</p>
+      <p>Taxable Gross Pay: {{ paycheck.gross_pay | number:'2.2-2' }}</p>
+      <p>Federal: {{ paycheck.fed_with | number:'2.2-2' }}</p>
+      <p>Social Security: {{ paycheck.social_security | number:'2.2-2' }}</p>
+      <p>Medicare: {{ paycheck.medicare | number:'2.2-2' }}</p>
+      <p>Annual net: {{ income_statement.annual_pay | number:'2.2-2' }} </p>
+      <p>Monthly net: {{ income_statement.monthly_pay | number:'2.2-2' }}</p>
     </div>
   </div>
 </div>

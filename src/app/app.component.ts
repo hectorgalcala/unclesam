@@ -6,8 +6,8 @@ import { Routes, ROUTER_DIRECTIVES, Router, ROUTER_PROVIDERS } from '@angular/ro
 import {FederalScreenComponent} from './components/federal-screen.component';
 
 
-// Interface
-import {FederalTax} from './models/federal-tax.interface';
+// Interface/Models
+
 
 // Services
 import {FederalWithholdingService} from './services/federal-withholding.service';
