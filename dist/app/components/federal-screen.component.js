@@ -46,7 +46,6 @@ var FederalScreenComponent = (function () {
         this.income_statement.semi_monthly_pay = this.income_statement.annual_pay / 24;
         this.income_statement.biweekly_pay = this.income_statement.annual_pay / 26;
         this.income_statement.weekly_pay = this.income_statement.annual_pay / 52;
-        console.log("income statement model: ", this.income_statement);
     };
     FederalScreenComponent.prototype.monthly_net_income = function (gross_pay, taxes) {
         this.income_statement.annual_pay = (gross_pay - taxes) * 12;
@@ -54,7 +53,6 @@ var FederalScreenComponent = (function () {
         this.income_statement.semi_monthly_pay = this.income_statement.annual_pay / 24;
         this.income_statement.biweekly_pay = this.income_statement.annual_pay / 26;
         this.income_statement.weekly_pay = this.income_statement.annual_pay / 52;
-        console.log("income statement model: ", this.income_statement);
     };
     FederalScreenComponent.prototype.compute_taxes = function () {
         this.paycheck.social_security = this.social_security_tax(this.paycheck.gross_pay);

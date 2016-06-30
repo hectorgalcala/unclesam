@@ -66,7 +66,6 @@ export class FederalScreenComponent implements OnInit{
     this.income_statement.semi_monthly_pay = this.income_statement.annual_pay/24;
     this.income_statement.biweekly_pay = this.income_statement.annual_pay/26
     this.income_statement.weekly_pay = this.income_statement.annual_pay/52;
-    console.log("income statement model: ", this.income_statement);
   }
 
   monthly_net_income(gross_pay, taxes){
@@ -75,7 +74,6 @@ export class FederalScreenComponent implements OnInit{
     this.income_statement.semi_monthly_pay = this.income_statement.annual_pay/24;
     this.income_statement.biweekly_pay = this.income_statement.annual_pay/26
     this.income_statement.weekly_pay = this.income_statement.annual_pay/52;
-    console.log("income statement model: ", this.income_statement);
   }
 
 
@@ -123,5 +121,6 @@ export class FederalScreenComponent implements OnInit{
     this.paycheck.fed_with = this.fed_service.fed_tax(this.paycheck.gross_pay, this.paycheck.fed_status, this.paycheck.pay_freq);
     this.compute_taxes();
   }
+
 
 }

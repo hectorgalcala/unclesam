@@ -21,18 +21,14 @@
           </div>
           <div class="form-group">
             <div class="input-group">
-              <!-- <input id="hours" type="text" placeholder="Hours" #pay_freq> -->
               <select name="Gross Pay Method" #pay_freq>
                 <option value="annually">Annually</option>
-                <!-- <option value="monthly">Monthly</option> -->
               </select>
               <div class="input-group-label">Pay frequency</div>
             </div>
-            <!-- <div class="form-helper">Monthly? Annually?</div> -->
           </div>
           <div class="form-group">
             <div class="input-group">
-              <!-- <input type="text" placeholder="Week" #filling_status> -->
               <div class="form-helper"> Whats your filling status: Single, Married?</div>
               <select name="Filling Status"  #file_status>
                 <option value="single">Single</option>
@@ -44,19 +40,15 @@
           </div>
           <button (click)="fed_tax(gross.value, file_status.value, pay_freq.value)">Calcutate net Salary</button>
         </form>
+        <div class="results">
+          <p>Taxable Gross Pay: {{ paycheck.gross_pay | number:'2.2-2' }}</p>
+          <p>Federal: {{ paycheck.fed_with | number:'2.2-2' }}</p>
+          <p>Social Security: {{ paycheck.social_security | number:'2.2-2' }}</p>
+          <p>Medicare: {{ paycheck.medicare | number:'2.2-2' }}</p>
+          <p>Annual net: {{ income_statement.annual_pay | number:'2.2-2' }} </p>
+          <p>Monthly net: {{ income_statement.monthly_pay | number:'2.2-2' }}</p>
+        </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="container results">
-    <div class="results">
-      <p>Taxable Gross Pay: {{ paycheck.gross_pay | number:'2.2-2' }}</p>
-      <p>Federal: {{ paycheck.fed_with | number:'2.2-2' }}</p>
-      <p>Social Security: {{ paycheck.social_security | number:'2.2-2' }}</p>
-      <p>Medicare: {{ paycheck.medicare | number:'2.2-2' }}</p>
-      <p>Annual net: {{ income_statement.annual_pay | number:'2.2-2' }} </p>
-      <p>Monthly net: {{ income_statement.monthly_pay | number:'2.2-2' }}</p>
     </div>
   </div>
 </div>
